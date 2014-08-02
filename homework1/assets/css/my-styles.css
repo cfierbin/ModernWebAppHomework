@@ -1,0 +1,31 @@
+#find {
+    width: 26em;
+    height: 2em;
+    box-shadow: 5px 5px 3px #888888;
+}
+
+.vertical-space-bottom {
+    margin-bottom: .5em;
+}
+
+.top-buffer { margin-top:20px; }
+
+/* enable absolute positioning */
+.inner-addon {
+    position: relative;
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
