@@ -140,11 +140,29 @@
 
         <ul class="list-unstyled">
             <li class="col-md-6">
-                <div class="col-xs-12 visible-xs">
+                <div class="col-xs-12 visible-xs" id="item1">
                         <h2><a href="javascript:void(0)">Item title</a></h2>
                 </div>
                 <div class = "row">
+                    <div class="col-xs-6" id="photo1">
+                        <a href="javascript:void(0)"><img  src="assets/img/01.jpg" class="img-responsive"/></a>
+                    </div>
+                    <div class="col-sm-6 hidden-xs">
+                        <h2><a href="javascript:void(0)">Item title</a></h2>
+                    </div>
                     <div class="col-xs-6">
+                        <p><b>Item's description:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                            aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="col-md-6">
+                <div class="col-xs-12 visible-xs" id="item2">
+                    <h2><a href="javascript:void(0)">Item title</a></h2>
+                </div>
+                <div class = "row">
+                    <div class="col-xs-6" id="photo2">
                         <a href="javascript:void(0)"><img src="assets/img/01.jpg" class="img-responsive"/></a>
                     </div>
                     <div class="col-sm-6 hidden-xs">
@@ -158,11 +176,11 @@
                 </div>
             </li>
             <li class="col-md-6">
-                <div class="col-xs-12 visible-xs">
+                <div class="col-xs-12 visible-xs" id="item3">
                     <h2><a href="javascript:void(0)">Item title</a></h2>
                 </div>
                 <div class = "row">
-                    <div class="col-xs-6">
+                    <div class="col-xs-6" id="photo3">
                         <a href="javascript:void(0)"><img src="assets/img/01.jpg" class="img-responsive"/></a>
                     </div>
                     <div class="col-sm-6 hidden-xs">
@@ -176,11 +194,11 @@
                 </div>
             </li>
             <li class="col-md-6">
-                <div class="col-xs-12 visible-xs">
+                <div class="col-xs-12 visible-xs" id="item4">
                     <h2><a href="javascript:void(0)">Item title</a></h2>
                 </div>
                 <div class = "row">
-                    <div class="col-xs-6">
+                    <div class="col-xs-6" id="photo4">
                         <a href="javascript:void(0)"><img src="assets/img/01.jpg" class="img-responsive"/></a>
                     </div>
                     <div class="col-sm-6 hidden-xs">
@@ -194,11 +212,11 @@
                 </div>
             </li>
             <li class="col-md-6">
-                <div class="col-xs-12 visible-xs">
+                <div class="col-xs-12 visible-xs" id="item5">
                     <h2><a href="javascript:void(0)">Item title</a></h2>
                 </div>
                 <div class = "row">
-                    <div class="col-xs-6">
+                    <div class="col-xs-6" id="photo5">
                         <a href="javascript:void(0)"><img src="assets/img/01.jpg" class="img-responsive"/></a>
                     </div>
                     <div class="col-sm-6 hidden-xs">
@@ -212,29 +230,11 @@
                 </div>
             </li>
             <li class="col-md-6">
-                <div class="col-xs-12 visible-xs">
+                <div class="col-xs-12 visible-xs" id="item6">
                     <h2><a href="javascript:void(0)">Item title</a></h2>
                 </div>
                 <div class = "row">
-                    <div class="col-xs-6">
-                        <a href="javascript:void(0)"><img src="assets/img/01.jpg" class="img-responsive"/></a>
-                    </div>
-                    <div class="col-sm-6 hidden-xs">
-                        <h2><a href="javascript:void(0)">Item title</a></h2>
-                    </div>
-                    <div class="col-xs-6">
-                        <p><b>Item's description:</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                            aliquip ex ea commodo consequat.</p>
-                    </div>
-                </div>
-            </li>
-            <li class="col-md-6">
-                <div class="col-xs-12 visible-xs">
-                    <h2><a href="javascript:void(0)">Item title</a></h2>
-                </div>
-                <div class = "row">
-                    <div class="col-xs-6">
+                    <div class="col-xs-6" id="photo6">
                         <a href="javascript:void(0)"><img src="assets/img/01.jpg" class="img-responsive"/></a>
                     </div>
                     <div class="col-sm-6 hidden-xs">
@@ -267,6 +267,31 @@
 
 <script src="assets/js/jquery-2.1.0.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
+
+<script>
+
+//  var item1=JSON.parse('{"title": "Item 1","thumb": "assets/img/01.jpg","url": "","description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore adipiscing elit. Ut enim ad minim veniam","timeleft": "2","watchers": "12","price": "123"}');
+//  document.getElementById("item1").innerHTML = '<h2><a href="javascript:void(0)">' + item1.title + '</a></h2>';
+
+    (function loadData(){
+        var arrayOfItemTitles = ["item1", "item2", "item3", "item4", "item5", "item6"];
+        var arrayOfPictures = ["photo1", "photo2", "photo3", "photo4", "photo5", "photo6"];
+        $.getJSON("assets/data/search-results.json", function(arrayOfItems) {
+            $.each(arrayOfItems, function(items, item){
+                for(j=0; j<7; j++) {
+                    document.getElementById(arrayOfItemTitles[j]).innerHTML =
+                            '<h2><a href="javascript:void(0)">' + item[j].title + '</a></h2>';
+                    document.getElementById(arrayOfPictures[j]).innerHTML =
+                            '<a href="javascript:void(0)"><img  src= "' + item[j].thumb + ' " class="img-responsive"/></a>';
+                }
+            });
+        }).fail(function (jqXHR, textStatus) {
+            //error handling code goes here
+        });
+    })();
+
+
+</script>
 
 </body>
 </html>
