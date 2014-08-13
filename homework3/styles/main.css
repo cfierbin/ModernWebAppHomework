@@ -3,7 +3,15 @@ body {
   margin: 0;
 }
 
-.top-buffer { margin-top:10px; }
+.top-buffer { margin-top: 10px; }
+
+.space-bottom {
+    margin-bottom: 50px;
+}
+
+.space-bottom2 {
+    margin-bottom: 25px;
+}
 
 .space {
     margin-left: 1.5em;
