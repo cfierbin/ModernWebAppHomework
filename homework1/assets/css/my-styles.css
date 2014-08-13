@@ -8,6 +8,10 @@
     margin-bottom: .5em;
 }
 
+.space {
+    margin-left: 10em;
+}
+
 .top-buffer { margin-top:20px; }
 
 /* enable absolute positioning */

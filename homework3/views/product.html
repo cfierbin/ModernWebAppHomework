@@ -20,7 +20,7 @@
     </div>
 
         <div class="col-md-6 col-sm-12">
-            <button type="button"  class = "btn btn-default top-buffer pull-right btn-block">
+            <button type="button"  class = "btn btn-default top-buffer">
                 Find More
             </button>
         </div>
@@ -29,8 +29,8 @@
     <div class="row">
 
         <div class="col-lg-6 col-md-6 col-sd-6 col-sm-6 col-xs-6">
-            <img  class="hide-overflow" src="../images/01.jpg" />
-            <div id="image-galery" class="row my-thumbnail">
+            <img src="../images/01.jpg" />
+            <div id="image-galery" class="row my-thumbnail hidden-xs">
                 <a href="javascript:void(0)">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
@@ -42,8 +42,10 @@
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </a>
             </div>
-            <div class="top-buffer">
-                <i class="glyphicon glyphicon-eye-open"></i><B>17 </B>Watchers
+            <div class="top-buffer hidden-xs">
+                <i class="glyphicon glyphicon-eye-open"></i><B><span style="font-size:xx-large">17</span></B>
+                <span style="font-size:large" class = "space">Watchers</span>
+                <a href="javascript:void(0)"><span style="font-size:large" class = "space">Watch</span></a>
             </div>
         </div>
 
@@ -64,12 +66,13 @@
             </div>
 
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sd-12 col-sm-12 col-xs-12">
-                    Current Price <br/> <B><span class="glyphicon glyphicon-usd"></span> 1234 [5 bids]</B>
+                <div class="col-md-6 top-buffer">
+                    Current Price <br/> <B><span class="glyphicon glyphicon-usd"></span>
+                    <span style="font-size:large">1234 [5 bids]</span></B>
                     <br/><br/>
                     <B>Time left 6h</B><br/>Today 15:23
                 </div>
-                <div class="col-lg-6 col-md-6 col-sd-12 col-sm-12 col-xs-12">
+                <div class="col-md-6">
                     <input type="text" class = "form-control" placeholder=""/>
                     <button type="button"  class = "btn btn-default top-buffer btn-block">
                        Place bid
@@ -78,13 +81,20 @@
             </div>
 
             <div class="row">
-                <div class="col-md-12 top-buffer">
-                    <p>Item's description: <br>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                <div class="col-md-12 hidden-md hidden-sd hidden-xs hidden-sm top-buffer">
+                 <p>   Item's description: <br>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
                         et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                         aliquip ex ea commodo consequat.</p>
                 </div>
             </div>
+        </div>
 
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 col-sd-12 col-md-12 hidden-lg top-buffer">
+                <p>Item's description: <br>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat.</p>
+            </div>
         </div>
 
     </div>
