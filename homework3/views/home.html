@@ -35,10 +35,10 @@
       <li class="col-md-4" ng-repeat="product in ctrl.products">
           <div class="row">
               <div class="col-xs-4">
-                  <a href="javascript:void(0)"><img ng-src="images/{{ product.thumb }}" alt="" class="img-responsive"></a>
+                  <a ng-href="#/product/{{ product.id }}"><img ng-src="images/{{ product.thumb }}" alt="" class="img-responsive"></a>
               </div>
               <div class="product-description-holder col-xs-8">
-                  <h2><a href="javascript:void(0)">{{ product.title }}</a></h2>
+                  <h2><a ng-href="#/product/{{ product.id }}">{{ product.title }}</a></h2>
                   <p>{{ product.description }}</p>
               </div>
           </div>

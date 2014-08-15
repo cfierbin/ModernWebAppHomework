@@ -24,7 +24,16 @@
     find: function () {
       return this.$http.get('data/products-search.json')
           .then(function (resp) { return resp.data; });
-    }
+    },
+
+      /** Finds products by their ID. */
+      getProductById: function (productId) {
+          return this.getProducts().then(function (products) {
+              return _.find(products, function (product) {
+                  return product.id === productId;
+              });
+          });
+      }
   };
 
   // Register the service within AngularJS DI container.

@@ -1,145 +1,107 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Product Details</title>
-    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../styles/main.css">
-</head>
-<body>
+<div class="row well">
 
-<div class="container">
-
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sd-6 col-sm-6">
-            <ol class="breadcrumb">
-                <li><a href="javascript:void(0);">Home</a></li>
-                <li><a href="javascript:void(0);">Category title</a></li>
-                <li class="active">Item</li>
-            </ol>
+    <div class="col-xs-12 col-sm-10">
+        <ol class="breadcrumb">
+            <li><a ng-href="#/home">Home</a></li>
+            <li><a href="javascript:void(0);">Category title</a></li>
+            <li class="active">Item</li>
+        </ol>
     </div>
 
-        <div class="col-lg-6 col-md-6 col-sd-6 col-sm-6">
-            <button type="button"  class = "btn btn-default top-buffer space-bottom">
-                Find More
-            </button>
-        </div>
+    <div class="col-xs-12 col-sm-2">
+        <button ng-hide="ctrl.isSearchFormVisible" ng-click="ctrl.isSearchFormVisible = true"  class="btn btn-default btn-block">Find more</button>
+        <button ng-show="ctrl.isSearchFormVisible" ng-click="ctrl.isSearchFormVisible = false" class="close" aria-hidden="true">&times;</button>
     </div>
+    <div ng-show="ctrl.isSearchFormVisible"></div>
 
-    <div class="row">
+</div>
 
-        <div class="col-lg-6 col-md-6 col-sd-6 col-sm-6 col-xs-6">
+<br/>
+
+<div class="row">
+    <div class="col-sm-6 col-lg-5 text-center">
+        <div class="row">
             <div class="hidden-xs">
-                <img src="../images/01.jpg" style="width:  300px; height: 250px;"/>
+                <img ng-src="images/{{ ctrl.product.thumb }}" alt="" class="img-responsive center-block">
+                <hr>
             </div>
-            <div class="visible-xs">
-                <img src="../images/01.jpg" style="width:  150px; height: 200px;"/>
+        <div class="row visible-xs">
+            <div class="col-xs-6">
+                <img ng-src="images/{{ ctrl.product.thumb }}" alt="" class="img-responsive center-block">
+                <hr>
             </div>
-            <div  class="row my-thumbnail hidden-xs top-buffer">
-                <a href="javascript:void(0)">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-                    <img  src="../images/02.jpg" />
-                    <img  src="../images/03.jpg" />
-                    <img  src="../images/04.jpg" />
-
-                <a href="javascript:void(0)">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
+            <div class="col-xs-6">
+                <h1>{{ ctrl.product.title }}</h1>
+                <p> Seller: starmotors (135)</p>
+                <p> 100% Positive feedback</p>
             </div>
-            <div class="top-buffer hidden-xs">
-                <i class="glyphicon glyphicon-eye-open"></i><B><span style="font-size:xx-large">17</span></B>
-                <span style="font-size:large" class = "space">Watchers</span>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <a href="javascript:void(0);"><img ng-src="images/{{ ctrl.product.thumb }}" alt="" class="img-responsive center-block"></a>
+            </div>
+            <div class="col-xs-4">
+                <a href="javascript:void(0);"><img ng-src="images/{{ ctrl.product.thumb }}" alt="" class="img-responsive center-block"></a>
+            </div>
+            <div class="col-xs-4">
+                <a href="javascript:void(0);"><img ng-src="images/{{ ctrl.product.thumb }}" alt="" class="img-responsive center-block"></a>
+            </div>
+        </div>
+        <hr>
+        <h5>
+            <div class="row">
+                    <div class="col-xs-4">
+                <i class="glyphicon glyphicon-eye-open"></i><B><span style="font-size:xx-large">{{ ctrl.product.watchers }}</span></B>
+                        </div>
+                        <div class="col-xs-4">
+                <span style="font-size:large">Watchers</span>
+                            </div>
+                        <div class="col-xs-4">
                 <a href="javascript:void(0)"><span style="font-size:large" class = "space">Watch</span></a>
+                            </div>
             </div>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sd-6 col-sm-6 col-xs-6">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sd-6 col-sm-6 col-xs-6 space">
-                     <h2><a href="javascript:void(0)">Item title</a></h2>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <p> Seller: starmotors (135)</p>
-                </div>
-                <div class="col-md-6">
-                     <p> 100% Positive feedback</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 hidden-xs top-buffer">
-                    Current Price <br/> <B><span class="glyphicon glyphicon-usd"></span>
-                    <span style="font-size:large">1234 [5 bids]</span></B>
-                    <br/><br/>
-                    <B>Time left 6h</B><br/>Today 15:23
-                </div>
-                <div class="col-md-6 hidden-xs">
-                    <input type="text" class = "form-control" placeholder=""/>
-                    <button type="button"  class = "btn btn-default top-buffer btn-block">
-                       Place bid
-                    </button>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12 hidden-md hidden-sd hidden-xs hidden-sm top-buffer">
-                 <p>   Item's description: <br>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat.</p>
-                </div>
-            </div>
-        </div>
-
-
-
+        </h5>
     </div>
 
-    <div class="row visible-xs">
-        <div id="image-galery" class="row my-thumbnail top-buffer space">
-            <a href="javascript:void(0)">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-            </a>
-            <img  src="../images/02.jpg" />
-            <img  src="../images/03.jpg" />
-            <img  src="../images/04.jpg" />
-
-            <a href="javascript:void(0)">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-            </a>
+    <div class="col-sm-6 col-lg-7">
+        <div class="col-sm-12 col-md-9 hidden-xs">
+            <h1>{{ ctrl.product.title }}</h1>
         </div>
-        <div class="top-buffer space">
-            <i class="glyphicon glyphicon-eye-open"></i><B><span style="font-size:xx-large">17</span></B>
-            <span style="font-size:large" class = "space">Watchers</span>
-            <a href="javascript:void(0)"><span style="font-size:large" class = "space">Watch</span></a>
+        <div class="row">
+            <div class="col-md-6 hidden-xs">
+                <p>Seller: <b>starmotors</b></p>
+            </div>
+            <div class="col-md-6 hidden-xs">
+                <p>(135) 100% Positive feedback</p>
+            </div>
         </div>
-        <div class="top-buffer space-bottom2">
+        <div class="col-sm-12 col-md-9 hidden-xs">
+            Current Price <br/> <B><span class="glyphicon glyphicon-usd"></span>
+            <span style="font-size:large">{{ ctrl.product.price}}   [5 bids]</span></B>
+            <br/><br/>
+            <B>Time left {{ ctrl.product.timeleft }}h</B><br/>Today 15:23
+        </div>
+        <div class="top-buffer space-bottom2 visible-xs">
             <B><span class="glyphicon glyphicon-usd space"></span>
                 <span style="font-size:large">1234</span></span></B>
-                <span class="space"> Current Price </span><br/>
-                <span style="font-size:large" class="space">[5 bids]</span>
-                <span class="space"><B>Time left 6h</B></span>
+            <span class="space"> Current Price </span><br/>
+            <span style="font-size:large" class="space">[5 bids]</span>
+            <span class="space">  <b>Time left</b>: {{ ctrl.product.timeleft }}h</span>
         </div>
-        <div>
+        <div class="col-sm-12 col-md-3">
             <input type="text" class = "form-control" placeholder=""/>
             <button type="button"  class = "btn btn-default top-buffer btn-block">
                 Place bid
             </button>
         </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-12 col-xs-12 col-sd-12 col-md-12 hidden-lg top-buffer">
-            <p>Item's description: <br>  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat.</p>
+        <div class="col-xs-12 top-buffer hidden-sm">Item's description: <br> {{ ctrl.product.description }}
         </div>
     </div>
-
 </div>
 
-</body>
-</html>
+<div class="row">
+    <div class="visible-sd hidden-xs hidden-lg hidden-md top-buffer">
+        <p>Item's description: <br>  {{ ctrl.product.description }}</p>
+    </div>
+</div>
