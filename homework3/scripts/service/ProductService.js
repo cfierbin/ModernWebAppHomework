@@ -27,8 +27,16 @@
     },
 
       /** Finds products by their ID. */
-      getProductById: function (productId) {
+      getProductById: function ($route, productId) {
           return this.getProducts().then(function (products) {
+              return _.find(products, function (product) {
+                  return product.id === productId;
+              });
+          });
+      },
+
+      getSearchProductById: function ($route, productId) {
+          return this.find().then(function (products) {
               return _.find(products, function (product) {
                   return product.id === productId;
               });

@@ -25,12 +25,27 @@
           controller: 'ProductController',
           controllerAs: 'ctrl',
           title: title('Product Details'),
+
           resolve: {
-              product: ['$route', 'ProductService', function ($route, productService) {
-                  var productId = parseInt($route.current.params.productId);
-                  return productService.getProductById(productId);
-              }]
-          }
+
+               product: ['$route', 'ProductService', function ($route, productService) {
+                   var productId = parseInt($route.current.params.productId);
+
+                  if (typeof(eticheta) === 'undefined') {
+                      return productService.getProductById($route, productId);
+                  }
+                   if (eticheta == 'home') {
+                       //read from /data/products-featured.json
+                       return productService.getProductById($route, productId);
+                    }
+                   if (eticheta == 'search')  {
+                       //read from data/products-search.json
+                       return productService.getSearchProductById($route, productId);
+                   }
+
+               }]
+      }
+
       })
         .otherwise({
            redirectTo: '/'
