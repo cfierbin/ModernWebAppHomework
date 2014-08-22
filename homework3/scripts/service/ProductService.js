@@ -26,22 +26,31 @@
           .then(function (resp) { return resp.data; });
     },
 
-      /** Finds products by their ID. */
-      getProductById: function ($route, productId) {
-          return this.getProducts().then(function (products) {
-              return _.find(products, function (product) {
-                  return product.id === productId;
-              });
-          });
-      },
 
-      getSearchProductById: function ($route, productId) {
-          return this.find().then(function (products) {
+      /** Finds products by their ID. */
+      getProductById: function (productId, path) {
+          var getData = (path === "featured") ? this.getProducts() : this.find();
+          return getData.then(function (products) {
               return _.find(products, function (product) {
                   return product.id === productId;
               });
           });
       }
+/*
+      getProductById: function(productId, path){
+          var getData = (path === "featured") ? this.getProducts() : this.find();
+          var foundProduct = getData.then(function(data){
+              for(var i = 0; i < data.length; i++) {
+                  if(productId === data[i].id){
+                      console.log(data[i]);
+                      return data[i];
+                  }
+              }
+          });
+          return foundProduct;
+      }
+
+      */
   };
 
   // Register the service within AngularJS DI container.

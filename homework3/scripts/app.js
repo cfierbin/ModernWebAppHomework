@@ -20,33 +20,18 @@
           controllerAs: 'ctrl',
           title: title('Search')
         })
-      .when('/product/:productId', {
-          templateUrl: 'views/product.html',
-          controller: 'ProductController',
-          controllerAs: 'ctrl',
-          title: title('Product Details'),
-
-          resolve: {
-
-               product: ['$route', 'ProductService', function ($route, productService) {
-                   var productId = parseInt($route.current.params.productId);
-
-                  if (typeof(eticheta) === 'undefined') {
-                      return productService.getProductById($route, productId);
-                  }
-                   if (eticheta == 'home') {
-                       //read from /data/products-featured.json
-                       return productService.getProductById($route, productId);
-                    }
-                   if (eticheta == 'search')  {
-                       //read from data/products-search.json
-                       return productService.getSearchProductById($route, productId);
-                   }
-
-               }]
-      }
-
-      })
+        .when('/product/:path/:id', {
+              templateUrl: 'views/product.html',
+              controller: 'ProductDetailsController',
+              controllerAs: 'ctrl',
+              title: title('Product'),
+              resolve: {
+                  product: ['$route', 'ProductService', function($route, ProductService){
+                      return ProductService.getProductById(parseInt($route.current.params.id),
+                          $route.current.params.path);
+                  }]
+              }
+          })
         .otherwise({
            redirectTo: '/'
          });
