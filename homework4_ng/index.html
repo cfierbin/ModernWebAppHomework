@@ -1,0 +1,65 @@
+<!doctype html>
+<html class="no-js" ng-app="auction">
+  <head>
+    <meta charset="utf-8">
+    <title ng-bind="pageTitle">Auction</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+      <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+      <link rel="stylesheet" href="lib/bootstrap/css/datepicker.css">
+      <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-slider.css">
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!--<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>-->
+
+    <!-- endbuild -->
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Navbar -->
+    <auction-navbar></auction-navbar>
+    <!-- / Navbar -->
+
+    <div class="container">
+        <div class="row" ng-view></div>
+    </div>
+
+    <!-- Footer -->
+    <auction-footer></auction-footer>
+    <!-- / Footer -->
+
+    <!-- Lib scripts -->
+    <script src="lib/jquery/jquery-2.1.1.min.js"></script>
+    <script src="lib/jquery/lodash.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-route.js"></script>
+    <script src="lib/bootstrap/js/bootstrap-datepicker.js"></script>
+    <script src="lib/bootstrap/js/bootstrap-slider.js"></script>
+
+
+    <!-- Custom scripts -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controller/HomeController.js"></script>
+    <script src="scripts/controller/ProductDetailsController.js"></script>
+    <script src="scripts/controller/SearchController.js"></script>
+    <script src="scripts/directive/FooterDirective.js"></script>
+    <script src="scripts/directive/NavbarDirective.js"></script>
+    <script src="scripts/service/ProductService.js"></script>
+    <script src="scripts/directive/SearchFormDirective.js"></script>
+    <script src="scripts/directive/DatepickerDirective.js"></script>
+    <script src="scripts/directive/PriceRangeDirective.js"></script>
+
+
+
+
+  </body>
+</html>

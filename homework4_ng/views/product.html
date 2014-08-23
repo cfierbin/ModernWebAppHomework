@@ -1,0 +1,113 @@
+<div class="row well">
+
+    <div class="col-xs-12 col-sm-10">
+        <ol class="breadcrumb">
+            <li><a ng-href="#/home">Home</a></li>
+            <li><a href="javascript:void(0);">Category title</a></li>
+            <li class="active">Item</li>
+        </ol>
+    </div>
+
+    <div class="col-xs-12 col-sm-2">
+        <button ng-hide="ctrl.isSearchFormVisible" ng-click="ctrl.isSearchFormVisible = true"  class="btn btn-default btn-block">Find more</button>
+        <button ng-show="ctrl.isSearchFormVisible" ng-click="ctrl.isSearchFormVisible = false" class="close" aria-hidden="true">&times;</button>
+    </div>
+
+
+
+    <auction-search-form ng-show="ctrl.isSearchFormVisible"></auction-search-form>
+
+
+ <!--   <div ng-show="ctrl.isSearchFormVisible"></div>-->
+
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col-sm-6 col-lg-5 text-center">
+        <div class="row">
+            <div class="hidden-xs">
+                <img ng-src="images/{{ ctrl.product.thumb }}" alt="" class="img-responsive center-block">
+                <hr>
+            </div>
+        <div class="row visible-xs">
+            <div class="col-xs-6">
+                <img ng-src="images/{{ ctrl.product.thumb }}" alt="" class="img-responsive center-block">
+                <hr>
+            </div>
+            <div class="col-xs-6">
+                <h1>{{ ctrl.product.title }}</h1>
+                <p> Seller: starmotors (135)</p>
+                <p> 100% Positive feedback</p>
+            </div>
+        </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <a href="javascript:void(0);"><img ng-src="images/{{ ctrl.product.thumb }}" alt="" class="img-responsive center-block"></a>
+            </div>
+            <div class="col-xs-4">
+                <a href="javascript:void(0);"><img ng-src="images/{{ ctrl.product.thumb }}" alt="" class="img-responsive center-block"></a>
+            </div>
+            <div class="col-xs-4">
+                <a href="javascript:void(0);"><img ng-src="images/{{ ctrl.product.thumb }}" alt="" class="img-responsive center-block"></a>
+            </div>
+        </div>
+        <hr>
+        <h5>
+            <div class="row">
+                    <div class="col-xs-4">
+                <i class="glyphicon glyphicon-eye-open"></i><B><span style="font-size:xx-large">{{ ctrl.product.watchers }}</span></B>
+                        </div>
+                        <div class="col-xs-4">
+                <span style="font-size:large">Watchers</span>
+                            </div>
+                        <div class="col-xs-4">
+                <a href="javascript:void(0)"><span style="font-size:large" class = "space">Watch</span></a>
+                            </div>
+            </div>
+        </h5>
+    </div>
+
+    <div class="col-sm-6 col-lg-7">
+        <div class="col-sm-12 col-md-9 hidden-xs">
+            <h1>{{ ctrl.product.title }}</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-6 hidden-xs">
+                <p>Seller: <b>starmotors</b></p>
+            </div>
+            <div class="col-md-6 hidden-xs">
+                <p>(135) 100% Positive feedback</p>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-9 hidden-xs">
+            Current Price <br/> <B><span class="glyphicon glyphicon-usd"></span>
+            <span style="font-size:large">{{ ctrl.product.price}}   [5 bids]</span></B>
+            <br/><br/>
+            <B>Time left {{ ctrl.product.timeleft }}h</B><br/>Today 15:23
+        </div>
+        <div class="top-buffer space-bottom2 visible-xs">
+            <B><span class="glyphicon glyphicon-usd space"></span>
+                <span style="font-size:large">1234</span></span></B>
+            <span class="space"> Current Price </span><br/>
+            <span style="font-size:large" class="space">[5 bids]</span>
+            <span class="space">  <b>Time left</b>: {{ ctrl.product.timeleft }}h</span>
+        </div>
+        <div class="col-sm-12 col-md-3">
+            <input type="text" class = "form-control" placeholder=""/>
+            <button type="button"  class = "btn btn-default top-buffer btn-block">
+                Place bid
+            </button>
+        </div>
+        <div class="col-xs-12 top-buffer hidden-sm">Item's description: <br> {{ ctrl.product.description }}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="visible-sd hidden-xs hidden-lg hidden-md top-buffer">
+        <p>Item's description: <br>  {{ ctrl.product.description }}</p>
+    </div>
+</div>
