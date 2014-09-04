@@ -1,5 +1,5 @@
 <!-- Advanced Search -->
-<div class="row">
+<div class="row" ng-controller="PriceRangeCtrl">
 
     <div class="col-lg-4">
         <h4>Product</h4>
@@ -31,17 +31,17 @@
                     <div class="col-xs-6 col-sm-6 col-sd-6">
                         <div class="inner-addon left-addon">
                             <i class="glyphicon glyphicon-usd"></i>
-                            <input type="text" class="form-control" placeholder="1000"/>
+                            <input type="text" class="form-control" ng-model="price.price"/>
                         </div>
                     </div>
                     <div class="col-xs-6 col-sm-6 col-sd-6">
                         <div class="form-group inner-addon left-addon">
                             <i class="glyphicon glyphicon-usd"></i>
-                            <input type="text" class="form-control" placeholder="1500">
+                            <input type="text" class="form-control" placeholder="10000">
                         </div>
                     </div>
                 </div>
-                <input class = "form-control" type="range" min="10" max="10000">
+                <input class = "form-control" type="range" min="0" max="10000" ng-model="price.price">
             </div>
             <div class="col-md-6">
                 <h4>Max Auction Close Date</h4>
