@@ -16,7 +16,7 @@
         $.getJSON(dataUrl, function(data) {
 
             //set current heading
-            headingContainer.text(data.heading);
+   //         headingContainer.text(data.heading);
 
             // Erase the previous HTML content, i.e set content '', empty string
             // and append compiled template
@@ -61,11 +61,21 @@
        return false;
     });
 
+     /*
      // action on featured products image click event
      $('#first').on("click", function() {
 
          showItems($("#product-template"),"assets/data/featured-products.json", listContainer, appHeadingContainer);
 
+         //prevent button from submitting forms
+         return false;
+     });
+     */
+
+     $(document).on("click", '#first', function() {
+         $('#featured-product-carousel').slideUp('slow', function() {
+             showItems($("#product-template"), "assets/data/first-item.json", listContainer, appHeadingContainer);
+         });
          //prevent button from submitting forms
          return false;
      });
