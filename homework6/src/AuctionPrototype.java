@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Timer;
@@ -8,15 +9,22 @@ import java.util.Timer;
  */
 public class AuctionPrototype implements BidListener{
 
+    //Bid emulator
     private static BidEmulator bidEmulator;
 
+    //A collection of Bid objects representing current bids
+    private static List<Bid> currentBids;
+
+    //Constructor initializes bid emulator, registers this class as a listener and creates list of bids
     public AuctionPrototype(){
         bidEmulator = new BidEmulator();
         bidEmulator.addListener(this);
+        currentBids = new ArrayList<>();
     }
 
     public static void main(String[] args){
 
+        //Create auction prototype
         AuctionPrototype auctionPrototype = new AuctionPrototype();
 
         //users
@@ -78,13 +86,38 @@ public class AuctionPrototype implements BidListener{
         bid3.amount = BigDecimal.valueOf(1000);
         bid3.user = me;
 
-        //A collection of Bid objects represents current bids
-        List<Bid> currentBids = new ArrayList<>();
-
         currentBids.add(bid1);
         currentBids.add(bid2);
         currentBids.add(bid3);
 
+        //print current bids
+        currentBids.forEach(bid -> {
+            System.out.println(bid.user.name + " bids for " + bid.product.title);
+        });
+
+        //Use Streams API with the collection of Bid objects.
+        //Use Comparator and sort the stream.
+
+        // Filter, map, reduce
+        int numberOfBidsOnRing = currentBids.stream()
+                .filter(b -> b.product.id == 2)
+                .mapToInt(b -> 1)
+                .sum();        // Combining the results (reducing)
+
+        System.out.println("Number of bids on ring is " + numberOfBidsOnRing);
+
+        System.out.println("\n Bids on ring, in descending order of bid amount:");
+        currentBids.stream()
+                .filter(b -> b.product.id == 2)
+                .sorted(Comparator.comparing(b -> b.amount))
+                .forEach(b -> {
+                    System.out.println(b.user.name + " bids " + b.amount + " for " + b.product.title);
+                });
+
+
+        System.out.println();
+
+        //start bidding process emulation
         Timer timer = new Timer();
         timer.scheduleAtFixedRate(bidEmulator, 0, 100);
 
@@ -93,5 +126,10 @@ public class AuctionPrototype implements BidListener{
     @Override
     public void bidEvent() {
         System.out.println("Received a new bid!");
+        //add the new bid to the collection of bids
+        //announce all bidders who opted for receiving overbid emails
+        //if the bid is less than a min Product price, send the bidder a sorry email
+        //ff the bid is greater or equal to the Product reserved price, send the bidder a winning email
+        System.out.println();
     }
 }
