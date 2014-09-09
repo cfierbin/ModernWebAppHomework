@@ -3,5 +3,5 @@
  */
 public interface BidListener {
 
-    public void bidEvent();
+    public void bidEvent(Bid bid);
 }

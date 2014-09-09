@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Comparator;
 import java.util.List;
 import java.util.ArrayList;
@@ -107,9 +108,10 @@ public class AuctionPrototype implements BidListener{
         System.out.println("Number of bids on ring is " + numberOfBidsOnRing);
 
         System.out.println("\n Bids on ring, in descending order of bid amount:");
+        Comparator<Bid> comparator = Comparator.comparing(b -> b.amount);
         currentBids.stream()
                 .filter(b -> b.product.id == 2)
-                .sorted(Comparator.comparing(b -> b.amount))
+                .sorted(comparator.reversed())
                 .forEach(b -> {
                     System.out.println(b.user.name + " bids " + b.amount + " for " + b.product.title);
                 });
@@ -124,10 +126,28 @@ public class AuctionPrototype implements BidListener{
     }
 
     @Override
-    public void bidEvent() {
+    public void bidEvent(Bid bid) {
         System.out.println("Received a new bid!");
+        DecimalFormat df = new DecimalFormat("#.##");
+        System.out.println("Bid id: " + bid.id + " Product id: " + bid.product.id +
+            " User id: " + bid.user.id + " Amount: " + df.format(bid.amount));
         //add the new bid to the collection of bids
+        currentBids.add(bid);
         //announce all bidders who opted for receiving overbid emails
+        currentBids.stream()
+                .filter(b -> b.product.id == bid.product.id)
+                .filter(b -> b.user.getOverbidNotifications == true)
+                .map(b -> b.user.id)
+                .distinct()
+                .forEach(i -> {
+                    switch(i){
+                        case 1: System.out.println("Mail sent to Mary: m.smith@xyz.com"); break;
+                        case 2: System.out.println("Mail sent to Julia: j.roberts@abc.org"); break;
+                        case 3: System.out.println("Mail sent to James: james.bond@xyz.com"); break;
+                        case 4: System.out.println("Mail sent to Cristina: cristina.f@abc.org"); break;
+                        default:;
+                    }
+                });
         //if the bid is less than a min Product price, send the bidder a sorry email
         //ff the bid is greater or equal to the Product reserved price, send the bidder a winning email
         System.out.println();
