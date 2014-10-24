@@ -1,11 +1,12 @@
-import java.io.Serializable;
+package model;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 /**
  * Created by yfain11 on 4/4/14.
  */
-public class Bid implements{
+public class Bid {
     public int id;
     public Product product;
     public BigDecimal amount;

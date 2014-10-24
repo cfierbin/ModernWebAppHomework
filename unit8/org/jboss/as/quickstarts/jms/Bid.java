@@ -1,3 +1,5 @@
+package org.jboss.as.quickstarts.jms;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -5,7 +7,7 @@ import java.time.LocalDateTime;
 /**
  * Created by yfain11 on 4/4/14.
  */
-public class Bid implements{
+public class Bid implements Serializable {
     public int id;
     public Product product;
     public BigDecimal amount;
